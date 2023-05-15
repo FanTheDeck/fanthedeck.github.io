@@ -6,52 +6,6 @@
 </head>
 <body>
   <h1>FTD Game Key May 15, 2023</h1>
-  <p>Thanks for participating!</p>
-
-  <p> Please ONLY CLAIM ONE KEY</p>
-
-<p>You can click the button again to try a different key in the event that you don't want to redeem the game in question or in the event that it's already been redeemed. If you understand, please check the checkbox below:</p>
-  <label><input type="checkbox" id="understand-checkbox">I understand and agree to only redeem one key.</label>
-  <br><br>
-  <button id="generate-key-btn">Generate Game Key</button>
-  <br><br>
-  <div id="key-info"></div>
-
-  <script>
-    const generateKeyBtn = document.querySelector("#generate-key-btn");
-    const keyInfoDiv = document.querySelector("#key-info");
-    const understandCheckbox = document.querySelector("#understand-checkbox");
-
-    function generateKey() {
-      if (!understandCheckbox.checked) {
-        keyInfoDiv.innerHTML = "Please check the checkbox to confirm that you understand and agree to only redeem one key.";
-        return;
-      }
-
-      keyInfoDiv.innerHTML = "Generating game key...";
-
-      fetch("https://my.api.mockaroo.com/Ftd-News23w19?key=06d7f530")
-        .then(response => response.json())
-        .then(data => {
-          const keyTitleArray = data.test.split(";;;");
-
-          const key = keyTitleArray[0];
-          const title = keyTitleArray[1];
-
-          const redeemUrl = `https://store.steampowered.com/account/registerkey?key=${key}`;
-
-          keyInfoDiv.innerHTML = `
-            <p><strong>Key:</strong> ${key}</p>
-            <p><strong>Title:</strong> ${title}</p>
-            <p><a href="${redeemUrl}" target="_blank">Click here to redeem the game</a></p>
-          `;
-        })
-        .catch(error => {
-          keyInfoDiv.innerHTML = "An error occurred while generating the game key. Please try again later.";
-        });
-    }
-
-    generateKeyBtn.addEventListener("click", generateKey);
-  </script>
+  <p>Unfortunately it appears all keys were claimed! Sorry about that!</p>
 </body>
 </html>
