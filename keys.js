@@ -9,6 +9,7 @@ function generateKey() {
       return JSON.parse(response)
     })
     .catch(err => console.log(err))
+  console.log(keys)
   if (!understandCheckbox.checked) {
     keyInfoDiv.innerHTML = "Please check the checkbox to confirm that you understand and agree to only redeem one key.";
     return;
