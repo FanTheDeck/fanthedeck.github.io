@@ -6,28 +6,27 @@ function generateKey() {
   const keys = fetch("keys.json")
     .then(response => response.text())
     .then((response) => {
-      return JSON.parse(response)
+      const keys = JSON.parse(response);
+      if (!understandCheckbox.checked) {
+        keyInfoDiv.innerHTML = "Please check the checkbox to confirm that you understand and agree to only redeem one key.";
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * (14));
+      const keyTitleArray = keys[randomIndex];
+
+      const title = keyTitleArray[0];
+      const key = keyTitleArray[1];
+
+      const redeemUrl = `https://store.steampowered.com/account/registerkey?key=${key}`;
+
+      keyInfoDiv.innerHTML = `
+        <p><strong>Title:</strong> ${title}</p>
+        <p><strong>Key:</strong> ${key}</p>
+        <p><a href="${redeemUrl}" target="_blank">Click here to redeem the game</a></p>
+      `;
     })
-    .catch(err => console.log(err))
-  console.log(keys)
-  if (!understandCheckbox.checked) {
-    keyInfoDiv.innerHTML = "Please check the checkbox to confirm that you understand and agree to only redeem one key.";
-    return;
-  }
-
-  const randomIndex = Math.floor(Math.random() * (14));
-  const keyTitleArray = keys[randomIndex];
-
-  const title = keyTitleArray[0];
-  const key = keyTitleArray[1];
-
-  const redeemUrl = `https://store.steampowered.com/account/registerkey?key=${key}`;
-
-  keyInfoDiv.innerHTML = `
-    <p><strong>Title:</strong> ${title}</p>
-    <p><strong>Key:</strong> ${key}</p>
-    <p><a href="${redeemUrl}" target="_blank">Click here to redeem the game</a></p>
-  `;
+    .catch(err => console.log(err));
 }
 
 generateKeyBtn.addEventListener("click", generateKey);
