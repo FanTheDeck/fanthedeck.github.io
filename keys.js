@@ -17,7 +17,7 @@ function generateKey() {
         return true;
      });
 
-      const randomIndex = Math.floor(Math.random() * (allObject.length()));
+      const randomIndex = Math.floor(Math.random() * (keys[keyDate.value].length));
       const keyTitleArray = keys[keyDate.value][randomIndex];
 
       const title = keyTitleArray[0];
