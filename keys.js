@@ -1,6 +1,7 @@
 const generateKeyBtn = document.querySelector("#generate-key-btn");
 const keyInfoDiv = document.querySelector("#key-info");
 const understandCheckbox = document.querySelector("#understand-checkbox");
+const keyDate = document.querySelector("#giveawayDate");
 
 function generateKey() {
   const keys = fetch("keys.json")
@@ -13,7 +14,7 @@ function generateKey() {
       }
 
       const randomIndex = Math.floor(Math.random() * (14));
-      const keyTitleArray = keys[randomIndex];
+      const keyTitleArray = keys[keyDate.value][randomIndex];
 
       const title = keyTitleArray[0];
       const key = keyTitleArray[1];
