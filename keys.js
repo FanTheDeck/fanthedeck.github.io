@@ -1,4 +1,4 @@
-fetch("/keys.json")
+fetch("keys.json")
    .then(response => response.text())
    .then((response) => {
        console.log(response)
