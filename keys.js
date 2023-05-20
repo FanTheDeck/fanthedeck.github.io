@@ -1,8 +1,8 @@
 fetch("keys.json")
    .then(response => response.text())
    .then((response) => {
-       console.log(response.text)
-       const keys = JSON.parse(response.text)
+       console.log(response)
+       const keys = JSON.parse(response)
    })
    .catch(err => console.log(err))
 
