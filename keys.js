@@ -13,7 +13,11 @@ function generateKey() {
         return;
       }
 
-      const randomIndex = Math.floor(Math.random() * (keys[keyDate.value].length()));
+      let allObject = keys[keyDate.value].filter((val) => {
+        return true;
+     });
+
+      const randomIndex = Math.floor(Math.random() * (allObject.length()));
       const keyTitleArray = keys[keyDate.value][randomIndex];
 
       const title = keyTitleArray[0];
