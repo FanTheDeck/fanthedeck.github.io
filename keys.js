@@ -4,7 +4,7 @@ const understandCheckbox = document.querySelector("#understand-checkbox");
 const keyDate = document.querySelector("#giveawayDate");
 
 function generateKey() {
-  const keys = fetch("keys.json")
+  const keys = fetch("/keys.json")
     .then(response => response.text())
     .then((response) => {
       const keys = JSON.parse(response);
