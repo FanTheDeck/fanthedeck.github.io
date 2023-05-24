@@ -1,0 +1,20 @@
+<!-- This page should have an input box that takes in a password, and another box to take in a base64-encoded AES-encrypted message -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AES Test</title>
+        <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>
+    </head>
+
+    <body>
+        <h1>AES Test</h1>
+        <p>Enter a password and a base64-encoded AES-encrypted message to decrypt it.</p>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password"><br><br>
+        <label for="message">Message:</label>
+        <input type="text" id="message" name="message"><br><br>
+        <button id="decrypt-button">Decrypt</button>
+        <div id="decrypted"></p>
+        <script src="test.js"></script>
+    </body>
+</html>
