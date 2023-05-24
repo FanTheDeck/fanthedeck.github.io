@@ -17,41 +17,8 @@
   <br><br>
   <div id="key-info"></div>
 
-  <script>
-    const generateKeyBtn = document.querySelector("#generate-key-btn");
-    const keyInfoDiv = document.querySelector("#key-info");
-    const understandCheckbox = document.querySelector("#understand-checkbox");
+  <input type="hidden" id="giveawayDate" name="giveawayDate" value="23w19">
 
-    function generateKey() {
-      if (!understandCheckbox.checked) {
-        keyInfoDiv.innerHTML = "Please check the checkbox to confirm that you understand and agree to only redeem one key.";
-        return;
-      }
-
-      keyInfoDiv.innerHTML = "Generating game key...";
-
-      fetch("https://my.api.mockaroo.com/Ftd-News23w19?key=06d7f530")
-        .then(response => response.json())
-        .then(data => {
-          const keyTitleArray = data.test.split(";;;");
-
-          const title = keyTitleArray[0];
-          const key = keyTitleArray[1];
-
-          const redeemUrl = `https://store.steampowered.com/account/registerkey?key=${key}`;
-
-          keyInfoDiv.innerHTML = `
-            <p><strong>Key:</strong> ${key}</p>
-            <p><strong>Title:</strong> ${title}</p>
-            <p><a href="${redeemUrl}" target="_blank">Click here to redeem the game</a></p>
-          `;
-        })
-        .catch(error => {
-          keyInfoDiv.innerHTML = "An error occurred while generating the game key. Please try again later.";
-        });
-    }
-
-    generateKeyBtn.addEventListener("click", generateKey);
-  </script>
+  <script src="/keys.js"></script>
 </body>
 </html>
